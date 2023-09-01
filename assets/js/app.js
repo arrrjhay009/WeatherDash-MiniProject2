@@ -63,14 +63,14 @@ searchField.addEventListener("input", function () {
                     `;
 
                     searchResult.querySelector("[data-search-list]").appendChild(searchItem);
-                    items.push(searchItem.querySelector("[data-serach-toggler]"));
+                    items.push(searchItem.querySelector("[data-search-toggler]"));
 
                 }
 
                 addEventOnElements(items, "click", function () {
                     toggleSearch();
                     searchResult.classList.remove("active");
-                })
+                });
 
             });
 
@@ -85,9 +85,9 @@ const errorContent = document.querySelector("[data-error-content]");
 
 export const updateWeather = function (lat, lon) {
 
-    // loading.style.display = "grid";
-    // container.style.overflowY = "hidden";
-    // container.classList.contains("fade-in") ?? container.classList.remove("fade-in");
+    loading.style.display = "grid";
+    container.style.overflowY = "hidden";
+    container.classList.remove("fade-in");
     errorContent.style.display = "none";
 
     const currentWeatherSection = document.querySelector("[data-current-weather]");
@@ -345,10 +345,14 @@ export const updateWeather = function (lat, lon) {
                 forecastSection.querySelector("[data-forecast-list]").appendChild(li);
             }
 
+            loading.style.display = "none";
+            container.style.overflowY = "overlay";
+            container.classList.add("fade-in");
+
         });
 
     });
 }
 
-export const error404 = function () { }
+export const error404 = () => errorContent.style.display = "flex";
 
