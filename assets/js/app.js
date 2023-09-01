@@ -69,6 +69,7 @@ searchField.addEventListener("input", function () {
 
                 addEventOnElements(items, "click", function () {
                     toggleSearch();
+                    searchField.value = "";
                     searchResult.classList.remove("active");
                 });
 
