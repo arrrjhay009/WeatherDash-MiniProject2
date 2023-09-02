@@ -11,7 +11,7 @@ const api_key = "ca76a8992a20704a4cbffc6bdd1a6f54";
 */
 
 export const fetchData = function(URL, callback) {
-    fetch(`${url}&appid=${api_key}`)
+    fetch(`${URL}&appid=${api_key}`)
         .then(res => res.json())
         .then(data => callback(data));
 }
